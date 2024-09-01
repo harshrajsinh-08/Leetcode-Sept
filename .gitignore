@@ -1,2 +1,4 @@
 #adding ignore files
 .DS_Store
+.class
+
