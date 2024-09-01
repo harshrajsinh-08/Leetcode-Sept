@@ -10,9 +10,10 @@ class longest_prefix {
         }
         return str[0];
     }
+
     public static void main(String[] args) {
         longest_prefix s = new longest_prefix();
-        String[] str = {"flower", "flow", "flight"};
+        String[] str = { "flower", "flow", "flight" };
         System.out.println(s.lcp(str));
     }
 }
