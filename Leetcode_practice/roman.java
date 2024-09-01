@@ -1,8 +1,8 @@
-class Solution {
+class roman {
     public int romanToInt(String s) {
         int ans = 0;
         int crt, nxt;
-        
+        // XXXV
         for (int i = 0; i < s.length() - 1; i++) {
             crt = getValue(s.charAt(i));
             nxt = getValue(s.charAt(i + 1));
@@ -13,7 +13,7 @@ class Solution {
             }
         }
         
-        return ans + getValue(s.charAt(s.length() - 1));
+        return ans+getValue(s.charAt(s.length()-1));
     }
 
     public int getValue(char c) {
@@ -27,5 +27,9 @@ class Solution {
             case 'M': return 1000;
             default: return 0;
         }
+    }
+    public static void main(String[] args) {
+        roman sol = new roman();
+        System.out.println(sol.romanToInt("III"));
     }
 }
