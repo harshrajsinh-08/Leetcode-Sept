@@ -26,5 +26,6 @@ class sept_05 {
         for (int i : ans) {
             System.out.print(i + " ");
         }
+        
     }
 }
