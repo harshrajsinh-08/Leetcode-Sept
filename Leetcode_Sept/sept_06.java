@@ -19,14 +19,15 @@ class sept_06 {
         for (int x : nums) {
             s.add(x);
         }
-        ListNode dummy = new ListNode(0, head);
-        for (ListNode pre = dummy; pre.next != null;) {
+        ListNode temp = new ListNode(0, head);
+        for (ListNode pre = temp; pre.next != null;) {
             if (s.contains(pre.next.val)) {
                 pre.next = pre.next.next;
             }else {
                 pre = pre.next;
             }
         }
-        return dummy.next;
+
+        return temp.next;
     }
 }
