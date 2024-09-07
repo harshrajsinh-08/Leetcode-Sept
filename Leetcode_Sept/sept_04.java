@@ -1,45 +1,23 @@
-import java.util.*;
-
 class sept_04 {
-    public int[] missingRolls(int[] rolls, int mean, int n) {
-        int m = rolls.length;
-        int s = (n + m) * mean;
-        for (int v : rolls) {
-            s -= v;
+    public int Lucky(String s, int k) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            sb.append(c - 'a'+1);
         }
-        if (s > n * 6 || s < n) {
-            return new int[0];
+        s = sb.toString();
+        while (k-- > 0) {
+            int t = 0;
+            for (char c : s.toCharArray()) {
+                t += c - '0';
+            }
+            s = String.valueOf(t);
         }
-        int[] ans = new int[n];
-        Arrays.fill(ans, s / n);
-        for (int i = 0; i < s % n; ++i) {
-            ans[i]+=1;
-        }
-        return ans;
+        return Integer.parseInt(s);
     }
     public static void main(String[] args) {
-        int[] rolls = {3, 2, 4, 3};
-        int mean = 5;
-        int n = 3;
-        sept_04 sol = new sept_04();
-        int[] ans = sol.missingRolls(rolls, mean, n);
-        for (int i : ans) {
-            System.out.print(i + " ");
-        }
+        String s = "zbax";
+        int k = 2;
+        sept_04 obj = new sept_04();
+        System.out.println(obj.Lucky(s, k));
     }
 }
-//binary palindrome
-//booth algo
-//euclid
-//karatsuba
-//longest sequence of 1 after changing the kth bit 
-// 
-//block swap 
-//max product subarray
-//max sum of a hourglass in a matrix
-//max eqb sum
-//leader in an array
-//majority element
-//lexicographical first palindromic string
-
-

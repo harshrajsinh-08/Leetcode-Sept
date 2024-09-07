@@ -1,32 +1,30 @@
 import java.util.*;
 
 class sept_05 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) {
-            this.val = val;}
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
+    public int[] missingRolls(int[] rolls, int mean, int n) {
+        int m = rolls.length;
+        int s = (n + m) * mean;
+        for (int v : rolls) {
+            s -= v;
         }
+        if (s > n * 6 || s < n) {
+            return new int[0];
+        }
+        int[] ans = new int[n];
+        Arrays.fill(ans, s / n);
+        for (int i = 0; i < s % n; ++i) {
+            ans[i]+=1;
+        }
+        return ans;
     }
-
-    public ListNode modifiedList(int[] nums, ListNode head) {
-        Set<Integer> s = new HashSet<>();
-        for (int x : nums) {
-            s.add(x);
+    public static void main(String[] args) {
+        int[] rolls = {3, 2, 4, 3};
+        int mean = 5;
+        int n = 3;
+        sept_05 sol = new sept_05();
+        int[] ans = sol.missingRolls(rolls, mean, n);
+        for (int i : ans) {
+            System.out.print(i + " ");
         }
-        ListNode dummy = new ListNode(0, head);
-        for (ListNode pre = dummy; pre.next != null;) {
-            if (s.contains(pre.next.val)) {
-                pre.next = pre.next.next;
-            }else {
-                pre = pre.next;
-            }
-        }
-        return dummy.next;
     }
 }
