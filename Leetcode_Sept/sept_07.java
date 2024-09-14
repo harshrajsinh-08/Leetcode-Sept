@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class sept_07 {
     public class ListNode {
         int val;
